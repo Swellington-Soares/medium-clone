@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -49,4 +50,28 @@ class User extends Authenticatable implements MustVerifyEmail
             'password' => 'hashed',
         ];
     }
+
+    public function imageUrl() {
+        if ($this->image) {
+            return Storage::url($this->image);
+        }
+        return "https://tamilnaducouncil.ac.in/wp-content/uploads/2020/04/dummy-avatar.jpg";
+    }
+
+
+
+    public function follow(){
+
+    }
+
+    public function unfollow(){
+
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+
 }
