@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FollowerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicProfileController;
 
@@ -14,6 +15,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
     Route::post('/posts', [PostController::class,'store'])->name('posts.store');
     Route::get('/@{username}/{post:slug}', [PostController::class, 'show'])->name('posts.show');
+    Route::post('/follow/{user:username}', [FollowerController::class, 'followUnfollow'])->name('follow');
 });
 
 

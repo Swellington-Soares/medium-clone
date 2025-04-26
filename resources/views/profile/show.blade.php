@@ -14,19 +14,29 @@
                             @endforelse
                         </div>
                     </div>
-
                     <div class="flex flex-col px-8">
-                        <x-user-avatar :user="$user" :size="'w-14 h-14'"/>
-                        <h3>{{ $user->name }}</h3>
-                        <p class="text-gray-500"> 26k Followers</p>
-                        <p>{{ $user->bio }}</p>
-                        <div>
-                            <button class="bg-emerald-600 rounded-xl px-4 py-2  text-white">
-                                Follow
-                            </button>
-                        </div>
-                    </div>
+                        <x-follow-container :user="$user">
+                            <x-user-avatar :user="$user" :size="'w-14 h-14'"/>
+                            <h3>{{ $user->name }}</h3>
+                            <p class="text-gray-400">
+                                <span x-text="followerCount"></span> followers
+                            </p>
 
+                            <p class="mt-4">{{ $user->bio }}</p>
+                            @if (auth()->user() && auth()->user()->id !== $user->id)
+                                <div class="w-full mt-4">
+                                    <button @click="follow"
+                                    :class="following
+                                        ? 'bg-red-600 text-white'
+                                        : 'bg-emerald-600 text-white'"
+                                    class=" rounded-xl px-4 py-2  text-white w-full"
+                                    x-text="following ? 'Unfollow' : 'Follow'">
+
+                                    </button>
+                                </div>
+                            @endif
+                        </x-follow-container>
+                    </div>
                 </div>
             </div>
         </div>

@@ -13,10 +13,16 @@
                                 <a href="{{ route('profile.show', $post->user) }}">{{ $post->user->name }}</a>
                             </h3>
                             @if (!Auth::user()->is($post->user))
-                                &middot;
-                                <a href="#" class="text-emerald-500 hover:text-emerald-700">
-                                    Follow
-                                </a>
+                                @auth
+                                  <x-follow-container :user="$post->user">
+                                    &middot;
+                                    <button @click="follow"
+                                    x-text="following ? 'Unfollow' : 'Follow'"
+                                    class="cursor-pointer"
+                                    :class="following ? 'text-red-500 hover:text-red-700' : 'text-emerald-500 hover:text-emerald-700'">
+                                  </button>
+                                </x-follow-container>
+                                @endauth
                             @endif
                         </div>
                         <div class="flex gap-2 text-gray-500 text-sm">

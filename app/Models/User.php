@@ -51,21 +51,29 @@ class User extends Authenticatable implements MustVerifyEmail
         ];
     }
 
-    public function imageUrl() {
+    public function imageUrl()
+    {
         if ($this->image) {
             return Storage::url($this->image);
         }
         return "https://tamilnaducouncil.ac.in/wp-content/uploads/2020/04/dummy-avatar.jpg";
     }
 
-
-
-    public function follow(){
-
+    public function following()
+    {
+        return $this->belongsToMany(User::class, 'followers', 'follower_id', 'user_id');
     }
 
-    public function unfollow(){
+    public function followers()
+    {
+        return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id');
+    }
 
+    public function isFollowedBy(User $user)
+    {
+
+
+        return $this->followers()->where('follower_id', $user->id)->exists();
     }
 
     public function posts()
