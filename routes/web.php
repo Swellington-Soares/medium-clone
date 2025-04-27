@@ -19,6 +19,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/follow/{user:username}', [FollowerController::class, 'followUnfollow'])->name('follow');
     Route::post('/clap/{post}', [ClapController::class, 'clap'])->name('clap');
 
+
+    Route::get('/c/{category}', [PostController::class, 'category'])->name('posts.ByCategory');
 });
 
 

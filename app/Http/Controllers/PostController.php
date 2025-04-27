@@ -93,4 +93,13 @@ class PostController extends Controller
     {
         //
     }
+
+    public function category(Category $category)
+    {
+
+        $posts = $category->posts()->orderBy('created_at', 'desc')->simplePaginate(5);
+
+        return view('post.index', ['posts' => $posts]);
+
+    }
 }
