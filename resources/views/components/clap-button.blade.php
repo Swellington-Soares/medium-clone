@@ -1,3 +1,7 @@
+
+@auth
+
+
 @props(['post'])
 
 <div class="flex mt-4 border-t-2 border-b-2 items-center" x-data="{
@@ -29,3 +33,5 @@
         <span x-text="count"></span>
     </button>
 </div>
+
+@endauth

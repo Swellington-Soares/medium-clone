@@ -14,12 +14,19 @@ class PostController extends Controller
      */
     public function index()
     {
-        $categories = Category::get();
-        $posts = Post::orderBy('created_at', 'desc')->paginate(5);
+
+        $user = auth()->user();
+        $query = Post::latest();
+
+        if ($user){
+            $ids = $user->posts()->pluck("id");
+            $query->whereIn("user_id", $ids);
+        }
+
+        $posts =  $query->paginate(5);
 
 
         return view('post.index', [
-            'categories' => $categories,
             'posts' => $posts,
         ]);
     }
@@ -45,7 +52,6 @@ class PostController extends Controller
     public function store(PostCreateRequest $request)
     {
        $data =  $request->validated();
-
 
         Post::create([
             'title' => $data['title'],

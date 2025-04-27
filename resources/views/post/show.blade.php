@@ -14,18 +14,20 @@
                             <h3 class="hover:underline">
                                 <a href="{{ route('profile.show', $post->user) }}">{{ $post->user->name }}</a>
                             </h3>
-                            @if (!Auth::user()->is($post->user))
-                                @auth
-                                  <x-follow-container :user="$post->user">
-                                    &middot;
-                                    <button @click="follow"
-                                    x-text="following ? 'Unfollow' : 'Follow'"
-                                    class="cursor-pointer"
-                                    :class="following ? 'text-red-500 hover:text-red-700' : 'text-emerald-500 hover:text-emerald-700'">
-                                  </button>
-                                </x-follow-container>
-                                @endauth
-                            @endif
+                            @auth
+                                @if (!Auth::user()->is($post->user))
+
+                                    <x-follow-container :user="$post->user">
+
+                                        @auth
+                                        &middot;
+                                            <button @click="follow" x-text="following ? 'Unfollow' : 'Follow'"
+                                                class="cursor-pointer" :class="following ? 'text-red-500 hover:text-red-700' : 'text-emerald-500 hover:text-emerald-700'">
+                                            </button>
+                                        @endauth
+                                    </x-follow-container>
+                                @endif
+                            @endauth
                         </div>
                         <div class="flex gap-2 text-gray-500 text-sm">
                             {{ $post->readTime() }}
@@ -36,7 +38,7 @@
                 </div>
 
 
-                <x-clap-button :post="$post"/>
+                <x-clap-button :post="$post" />
 
 
                 <div class="mt-4">
@@ -51,12 +53,7 @@
                     </p>
                 </div>
 
-                <div class="flex gap-4 mt-4">
-                    <div
-                        class="mt-4  items-center bg-gray-500 text-white rounded-full px-4 py-2">
-                        {{ $post->category->name }}
-                    </div>
-                </div>
+               <x-category-tag-button :category="$post->category" />
             </div>
         </div>
 </x-app-layout>
