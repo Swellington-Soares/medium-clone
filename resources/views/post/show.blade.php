@@ -7,6 +7,8 @@
 
                 <div class="flex gap-4">
                     <x-user-avatar :user="$post->user" />
+
+
                     <div>
                         <div class="flex gap-2">
                             <h3 class="hover:underline">
@@ -34,13 +36,7 @@
                 </div>
 
 
-                <div class="flex mt-4 border-t-2 border-b-2 items-center">
-                    <button
-                        class="flex gap-2 items-center text-gray-500 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-900 focus:ring-offset-2 rounded-full">
-                        <x-like-icon class="w-5" />
-                        3.2k
-                    </button>
-                </div>
+                <x-clap-button :post="$post"/>
 
 
                 <div class="mt-4">
