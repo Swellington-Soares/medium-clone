@@ -22,7 +22,7 @@
             </a>
         </div>
     </div>
-    <img class="object-cover w-full h-48 md:w-40 md:rounded-r-lg" src="{{ Storage::url($post->image) }}"
+    <img class="object-cover w-full h-48 md:w-40 md:rounded-r-lg" src="{{ $post->imageUrl('preview') }}"
         alt="Post Image">
 
 </div>

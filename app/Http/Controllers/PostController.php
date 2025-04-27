@@ -53,14 +53,17 @@ class PostController extends Controller
     {
        $data =  $request->validated();
 
-        Post::create([
+
+        $post = Post::create([
             'title' => $data['title'],
             'content' => $data['content'],
             'category_id' => $data['category_id'],
-            'image' => $data['image']->store('posts', 'public'),
             'user_id' => auth()->user()->id,
             'slug' => str($data['title'])->slug(),
         ]);
+
+        $post->addMediaFromRequest('image')
+            ->toMediaCollection();
 
         return redirect()->route('dashboard')->with('success', 'Post created successfully.');
     }

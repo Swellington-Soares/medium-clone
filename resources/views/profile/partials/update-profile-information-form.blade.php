@@ -19,11 +19,11 @@
 
 
         <div class="mt-4">
-            @isset($user->image)
-                <img src="{{ Storage::url( $user->image ) }}" alt="Avatar" id="preview" class="mt-4 rounded-full w-32 h-32 object-cover" />
+            @if($user->getFirstMedia())
+                <img src="{{  $user->imageUrl() }}" alt="Avatar" id="preview" class="mt-4 rounded-full w-32 h-32 object-cover" />
             @else
                 <img id="preview" class="mt-4 rounded-full w-32 h-32 object-cover hidden" />
-            @endisset
+            @endif
 
             <x-input-label for="image" :value="__('Avatar')" />
             <x-text-input id="image" class="block mt-1 w-full" type="file" name="image" :value="old('image')" />
