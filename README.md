@@ -31,33 +31,33 @@ Este é um projeto simples, um "clone" baseado no site [Medium](https://medium.c
 
 <figure>
   <img src=".repository/criacao_postagem.png" alt="Texto alternativo">
-  <figcaption>Esta é a legenda da imagem</figcaption>
+  
 </figure>
 
 <figure>
   <img src=".repository/email.png" alt="Texto alternativo">
-  <figcaption>Esta é a legenda da imagem</figcaption>
+  
 </figure>
 
 
 <figure>
   <img src=".repository/pagina_inicial_com_postagem.png" alt="Texto alternativo">
-  <figcaption>Esta é a legenda da imagem</figcaption>
+  
 </figure>
 
 
 <figure>
   <img src=".repository/tela_criacao_acordo.png" alt="Texto alternativo">
-  <figcaption>Esta é a legenda da imagem</figcaption>
+  
 </figure>
 
 <figure>
   <img src=".repository/tela_edit_perfil.png" alt="Texto alternativo">
-  <figcaption>Esta é a legenda da imagem</figcaption>
+  
 </figure>
 
 <figure>
   <img src=".repository/tela_verificacao_email.png" alt="Texto alternativo">
-  <figcaption>Esta é a legenda da imagem</figcaption>
+  
 </figure>
 
