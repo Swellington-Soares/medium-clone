@@ -1,61 +1,63 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Aprendendo Laravel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este é um projeto simples, um "clone" baseado no site [Medium](https://medium.com/), implementado com Laravel.
 
-## About Laravel
+## Funcionalidades Implementadas
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### **Usuário**
+- **Cadastro**: Permite que novos usuários se registrem na plataforma.
+- **Login**: Sistema de autenticação para login de usuários.
+- **Validação por E-mail**: Confirmação de conta via e-mail.
+- **Perfil Público**: Exibição de perfil acessível por outros usuários.
+- **Sistema de Seguir**: Usuários podem seguir outros autores.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### **Postagens**
+- **Criação**: Autores podem criar novas postagens.
+- **Curtir**: Usuários podem curtir as postagens.
+- **Feed**: Exibe as postagens dos autores que o usuário segue na página inicial.
+- **Filtro por Categoria**: Filtra postagens de acordo com a categoria selecionada.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Aprendizado Adquirido
 
-## Learning Laravel
+- **Estrutura de um projeto Laravel**: Compreensão da organização de pastas e arquivos no Laravel.
+- **Criação de Models, Controllers e Migrations**: Implementação da lógica de negócio e interação com o banco de dados.
+- **Configuração de Banco de Dados, Logs, Views, Storage e Rotas**: Configuração básica e aprimorada do projeto.
+- **Uso do Tinker**: Exploração e manipulação de dados no banco de dados via terminal.
+- **Validações de Requisição**: Implementação de regras para garantir a integridade e segurança dos dados.
+- **Uso do [Eloquent](https://laravel.com/docs/12.x/eloquent)**: Utilização do ORM do Laravel para facilitar o acesso e manipulação de dados no banco.
+- **Criação de Views com Componentes e Layouts**: Estruturação do front-end do site, incluindo a criação de layouts reutilizáveis.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Algumas imagens
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+<figure>
+  <img src=".repository/criacao_postagem.png" alt="Texto alternativo">
+  <figcaption>Esta é a legenda da imagem</figcaption>
+</figure>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<figure>
+  <img src=".repository/email.png" alt="Texto alternativo">
+  <figcaption>Esta é a legenda da imagem</figcaption>
+</figure>
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+<figure>
+  <img src=".repository/pagina_inicial_com_postagem.png" alt="Texto alternativo">
+  <figcaption>Esta é a legenda da imagem</figcaption>
+</figure>
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development/)**
-- **[Active Logic](https://activelogic.com)**
+<figure>
+  <img src=".repository/tela_criacao_acordo.png" alt="Texto alternativo">
+  <figcaption>Esta é a legenda da imagem</figcaption>
+</figure>
 
-## Contributing
+<figure>
+  <img src=".repository/tela_edit_perfil.png" alt="Texto alternativo">
+  <figcaption>Esta é a legenda da imagem</figcaption>
+</figure>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<figure>
+  <img src=".repository/tela_verificacao_email.png" alt="Texto alternativo">
+  <figcaption>Esta é a legenda da imagem</figcaption>
+</figure>
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
