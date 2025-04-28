@@ -4,7 +4,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mt-8 p-4">
                 <h1 class="text-5xl mb-4 text-green">{{ $post->title }}</h1>
 
-
+                @dump($post)
                 <div class="flex gap-4">
                     <x-user-avatar :user="$post->user" />
 

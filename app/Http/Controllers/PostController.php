@@ -16,15 +16,17 @@ class PostController extends Controller
     {
 
         $user = auth()->user();
-        $query = Post::latest();
 
-        if ($user){
-            $ids = $user->posts()->pluck("id");
-            $query->whereIn("user_id", $ids);
+        $query = Post::with(['user', 'media'])
+            ->withCount('claps')
+            ->latest();
+
+        if ($user) {
+            $followingIds = $user->followings()->pluck('users.id');
+            $query->whereIn('user_id', $followingIds);
         }
 
-        $posts =  $query->paginate(5);
-
+        $posts = $query->paginate(5);
 
         return view('post.index', [
             'posts' => $posts,
@@ -51,7 +53,7 @@ class PostController extends Controller
      */
     public function store(PostCreateRequest $request)
     {
-       $data =  $request->validated();
+        $data = $request->validated();
 
 
         $post = Post::create([
@@ -73,9 +75,8 @@ class PostController extends Controller
      */
     public function show(string $username, Post $post)
     {
-        //
         return view('post.show', [
-            'post' => $post,
+            'post' => $post->with(['user', 'media'])->withCount('claps')->first(),
         ]);
     }
 
@@ -106,7 +107,11 @@ class PostController extends Controller
     public function category(Category $category)
     {
 
-        $posts = $category->posts()->orderBy('created_at', 'desc')->simplePaginate(5);
+        $posts = $category->posts()
+            ->with(['user', 'media'])
+            ->withCount('claps')
+            ->latest()
+            ->simplePaginate(5);
 
         return view('post.index', ['posts' => $posts]);
 

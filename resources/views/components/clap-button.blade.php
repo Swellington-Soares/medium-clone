@@ -1,12 +1,12 @@
 
 @auth
 
-
 @props(['post'])
+
 
 <div class="flex mt-4 border-t-2 border-b-2 items-center" x-data="{
         hasClapped: {{ auth()->user()->hasClapped($post) ? 'true' : 'false' }},
-        count: {{ $post->claps()->count() }},
+        count: {{ $post->claps_count }},
         clap(){
             axios.post('/clap/{{ $post->id }}')
                 .then(response => {

@@ -60,7 +60,7 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
         return $this->getFirstMedia('avatar')?->getUrl('avatar') ?: "https://tamilnaducouncil.ac.in/wp-content/uploads/2020/04/dummy-avatar.jpg";
     }
 
-    public function following()
+    public function followings()
     {
         return $this->belongsToMany(User::class, 'followers', 'follower_id', 'user_id');
     }
